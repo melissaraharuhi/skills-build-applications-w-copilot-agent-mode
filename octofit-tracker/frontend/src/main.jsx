@@ -5,6 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
 import App from './App.jsx'
 
+const codespaceName = import.meta.env.VITE_CODESPACE_NAME
+
+if (!codespaceName) {
+  console.info('VITE_CODESPACE_NAME is not set; the app will fall back to http://localhost:8000/api.')
+}
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
